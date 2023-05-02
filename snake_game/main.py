@@ -36,12 +36,16 @@ while not is_game_over:
     # Detect wall
     if snake.segments[0].xcor() > WALL_LIMIT or snake.segments[0].xcor() < -WALL_LIMIT or \
             snake.segments[0].ycor() > WALL_LIMIT or snake.segments[0].ycor() < -WALL_LIMIT:
-        is_game_over = True
-        scoreboard.game_over()
+        # is_game_over = True
+        # scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
     # Detect Tail
     for segment in snake.segments[1:]:
         if snake.segments[0].distance(segment) < 6:
-            is_game_over = True
-            scoreboard.game_over()
+            # is_game_over = True
+            # scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 screen.exitonclick()

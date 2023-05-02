@@ -28,6 +28,13 @@ class Snake:
         last_turtle = self.segments[-1]
         self.add_segment(last_turtle.pos())
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1010,1010)
+        self.segments.clear()
+        self.create_snake()
+
+
     def move(self):
         for i in range(len(self.segments) - 1, 0, -1):
             self.segments[i].goto(self.segments[i - 1].pos())
