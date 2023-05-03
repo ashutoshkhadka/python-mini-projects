@@ -20,13 +20,12 @@ def create_label():
     text.goto(x, y)
     text.write(ans, font=("Arial", 12, "normal"))
 
+
 def create_report():
-    missed_states = []
-    for state in df.state:
-        if state not in guessed_states:
-            missed_states.append(state)
+    missed_states = [state for state in df.state if state not in guessed_states]
     missed_data = pd.DataFrame(missed_states)
     missed_data.to_csv("report.csv")
+
 
 manual_override = False
 while len(guessed_states) < 50 and not manual_override:
